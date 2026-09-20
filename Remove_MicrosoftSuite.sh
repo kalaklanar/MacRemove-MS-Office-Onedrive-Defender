@@ -76,6 +76,9 @@ sudo rm -rf "/Library/LaunchAgents/com.microsoft.OneDrive*"
 sudo rm -rf "/Library/LaunchDaemons/com.microsoft.OneDrive*"
 sudo rm -rf "/Library/PrivilegedHelperTools/com.microsoft.OneDrive*"
 
+## REMOVE LOG FILES
+sudo rm -fr "/Library/Logs/Microsoft"
+
 ## REMOVE SUPPORTING OFFICE, DEFENDER, AND ONEDRIVE FILES FROM END USER LIBRARIES ##
 for USER_HOME in /Users/*
 do 
