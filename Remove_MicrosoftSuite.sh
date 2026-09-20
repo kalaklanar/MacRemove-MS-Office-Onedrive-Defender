@@ -63,6 +63,7 @@ sudo rm -rf "/Library/LaunchAgents/com.microsoft.update.agent.plist"
 sudo rm -rf "/Library/PrivilegedHelperTools/com.microsoft.office.licensingV2.helper"
 sudo rm -rf "/Library/PrivilegedHelperTools/com.microsoft.autoupdate.helper"
 sudo rm -rf "/Library/Preferences/com.microsoft.office.licensingV2.plist"
+sudo rm -f "/Library/Preferences/com.microsoft.autoupdate2.plist"
 
 ## REMOVE MICROSOFT DEFENDER FILES FROM SYSTEM LIBRARY ##
 sudo rm -rf "/Library/Application Support/Microsoft/Defender"
@@ -73,6 +74,7 @@ sudo rm -rf "/Library/Preferences/com.microsoft.wdav.plist"
 
 ## REMOVE ONEDRIVE BACKGROUND PROCESSES AND FILES ##
 sudo rm -rf "/Library/LaunchAgents/com.microsoft.OneDrive*"
+sudo rm -rf "/Library/LaunchAgents/com.microsoft.SyncReporter.plist"
 sudo rm -rf "/Library/LaunchDaemons/com.microsoft.OneDrive*"
 sudo rm -rf "/Library/PrivilegedHelperTools/com.microsoft.OneDrive*"
 
