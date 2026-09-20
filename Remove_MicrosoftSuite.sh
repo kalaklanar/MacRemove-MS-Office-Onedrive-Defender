@@ -19,16 +19,33 @@ APPARRAY=(
 echo "Close running Office applications, OneDrive, and Microsoft Defender"
 for APP in "${APPARRAY[@]}"
 do
-  if pgrep -x "$APP" > /dev/null; then
+    if pgrep -x "$APP" > /dev/null; then
     echo "Application $APP is running. Quitting application now..."
     osascript -e "quit app \"$APP\""
     sleep 2
     if pgrep -x "$APP" > /dev/null; then
-      echo "Application $APP did not quit with osascript. Killing application now..."
-      pkill -x "$APP"
+        echo "Application $APP did not quit with osascript. Killing application now..."
+        pkill -x "$APP"
     fi
-  fi
+    if pgrep -x "$APP" > /dev/null; then
+        echo "Application $APP still did not quit. Killing application with sudo now..."
+        sudo pkill -x "$APP"
+    fi
+    fi
 done
+
+for APP in "${APPARRAY[@]}"
+do
+    stillrunning=$(sudo pgrep -x "$APP")
+    while [[ "$stillrunning" ]]; do
+    echo "Application $APP still did not quit. Killing application with sudo now..."
+    echo "You may want to check at the GUI to see what is blocking $APP"
+    sudo kill "$stillrunning"
+    echo "sleeping to allow time to quit $APP"
+    stillrunning=$(sudo pgrep -x "$APP")
+    done
+done
+
 
 ## DETERMINE IF MICROSOFT APPLICATIONS ARE STILL RUNNING. IF SO, EXIT SCRIPT ##
 echo "Determine what Office products, OneDrive, or Microsoft Defender are currently running..."
