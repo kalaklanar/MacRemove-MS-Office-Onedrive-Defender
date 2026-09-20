@@ -12,6 +12,7 @@ APPARRAY=(
     "OneDrive"
     "Microsoft AutoUpdate"
     "Microsoft Defender"
+    "Microsoft Defender Shim.app"
 )
 
 ## FORCE QUIT RUNNING MICROSOFT APPLICATIONS ##
@@ -84,6 +85,7 @@ do
         sudo rm -rf "$USER_HOME/Library/Cookies/com.microsoft.*"
         sudo rm -rf "$USER_HOME/Library/Group Containers/UBF8T346G9.*"
         sudo rm -rf "$USER_HOME/Library/Application Support/Microsoft/Defender"
+        sudo rm -rf "$USER_HOME/Library/Application Support/Microsoft Defender Shim"
         sudo rm -rf "$USER_HOME/Library/Preferences/com.microsoft.wdav.plist"
         sudo rm -rf "$USER_HOME/Library/Preferences/com.microsoft.OneDrive*"
         sudo rm -rf "$USER_HOME/Library/Application Support/OneDrive"
