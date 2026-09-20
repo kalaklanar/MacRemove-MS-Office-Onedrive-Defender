@@ -20,9 +20,10 @@ echo "Close running Office applications, OneDrive, and Microsoft Defender"
 for APP in "${APPARRAY[@]}"
 do
     if pgrep -x "$APP" > /dev/null; then
-    echo "Application $APP is running. Quitting application now..."
-    osascript -e "quit app \"$APP\""
-    sleep 2
+        echo "Application $APP is running. Quitting application now..."
+        osascript -e "quit app \"$APP\""
+        sleep 2
+    fi
     if pgrep -x "$APP" > /dev/null; then
         echo "Application $APP did not quit with osascript. Killing application now..."
         pkill -x "$APP"
@@ -30,7 +31,6 @@ do
     if pgrep -x "$APP" > /dev/null; then
         echo "Application $APP still did not quit. Killing application with sudo now..."
         sudo pkill -x "$APP"
-    fi
     fi
 done
 
@@ -62,7 +62,7 @@ fi
 if command -v dockutil >/dev/null 2>&1; then
     for APP in "${APPARRAY[@]}"
     do
-    dockutil --allhomes --remove "$APP"
+        dockutil --allhomes --remove "$APP"
     done
 fi
 
