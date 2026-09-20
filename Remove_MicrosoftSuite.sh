@@ -42,10 +42,10 @@ else
 fi
 
 ## REMOVE OFFICE AND ONEDRIVE ICONS FROM DOCK ##
-if [ -f /usr/local/bin/dockutil ]; then
+if command -v dockutil >/dev/null 2>&1; then
   for APP in "${APPARRAY[@]}"
   do
-    /usr/local/bin/dockutil --allhomes --remove "$APP"
+  dockutil --allhomes --remove "$APP"
   done
 fi
 
