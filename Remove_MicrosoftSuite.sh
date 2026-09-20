@@ -32,21 +32,21 @@ done
 
 ## DETERMINE IF MICROSOFT APPLICATIONS ARE STILL RUNNING. IF SO, EXIT SCRIPT ##
 echo "Determine what Office products, OneDrive, or Microsoft Defender are currently running..."
-MicrosoftRunning=$(pgrep -l -f "Microsoft\|OneDrive")
+MicrosoftRunning=$(pgrep -l -f "Microsoft|OneDrive")
 if [ -z "$MicrosoftRunning" ]; then
-  echo "No Microsoft applications are running. Continue removal script."
+    echo "No Microsoft applications are running. Continue removal script."
 else
-  echo "Microsoft applications are still running. Exiting script."
-  echo "$MicrosoftRunning"
-  exit 0
+    echo "Microsoft applications are still running. Exiting script."
+    echo "$MicrosoftRunning"
+    exit 0
 fi
 
 ## REMOVE OFFICE AND ONEDRIVE ICONS FROM DOCK ##
 if command -v dockutil >/dev/null 2>&1; then
-  for APP in "${APPARRAY[@]}"
-  do
-  dockutil --allhomes --remove "$APP"
-  done
+    for APP in "${APPARRAY[@]}"
+    do
+    dockutil --allhomes --remove "$APP"
+    done
 fi
 
 ## REMOVE APPLICATIONS FROM "/APPLICATIONS/"
