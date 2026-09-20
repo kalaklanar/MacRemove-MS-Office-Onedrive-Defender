@@ -1,4 +1,5 @@
 #!/bin/zsh
+noglob
 
 ## VARIABLES ##
 APPARRAY=(
