@@ -12,7 +12,7 @@ APPARRAY=(
     "OneDrive"
     "Microsoft AutoUpdate"
     "Microsoft Defender"
-    "Microsoft Defender Shim.app"
+    "Microsoft Defender Shim"
 )
 
 ## FORCE QUIT RUNNING MICROSOFT APPLICATIONS ##
